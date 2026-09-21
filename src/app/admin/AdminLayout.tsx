@@ -22,8 +22,8 @@ export default function AdminLayout() {
   return (
     <div
       style={{
-        background: "#0A0A0A",
-        color: "#F5F5F5",
+        background: "var(--adm-bg)",
+        color: "var(--adm-fg)",
         fontFamily: "'Inter', sans-serif",
         minHeight: "100vh",
         display: "flex",
@@ -34,8 +34,8 @@ export default function AdminLayout() {
       <form
         onSubmit={handleSubmit}
         style={{
-          background: "rgba(255,255,255,0.03)",
-          border: "1px solid rgba(255,255,255,0.08)",
+          background: "var(--adm-surface)",
+          border: "1px solid var(--adm-border)",
           borderRadius: 16,
           padding: 32,
           width: 320,
@@ -46,7 +46,7 @@ export default function AdminLayout() {
           style={{
             fontFamily: "'JetBrains Mono', monospace",
             fontSize: 11,
-            color: "#525252",
+            color: "var(--adm-fg-subtle)",
             textTransform: "uppercase",
             letterSpacing: "0.15em",
             marginBottom: 8,
@@ -65,18 +65,18 @@ export default function AdminLayout() {
           autoFocus
           className="w-full outline-none text-center"
           style={{
-            background: "rgba(255,255,255,0.04)",
-            border: "1px solid rgba(255,255,255,0.1)",
+            background: "var(--adm-input-bg)",
+            border: "1px solid var(--adm-input-border)",
             borderRadius: 12,
             padding: "12px 16px",
-            color: "#F5F5F5",
+            color: "var(--adm-fg)",
             fontSize: 20,
             fontFamily: "'JetBrains Mono', monospace",
             letterSpacing: "0.3em",
             marginBottom: 12,
           }}
-          onFocus={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.25)"; }}
-          onBlur={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)"; }}
+          onFocus={(e) => { e.currentTarget.style.borderColor = "rgba(59,130,246,0.5)"; }}
+          onBlur={(e) => { e.currentTarget.style.borderColor = "var(--adm-input-border)"; }}
         />
         {error && (
           <p style={{ color: "#ef4444", fontSize: 13, marginBottom: 12 }}>{error}</p>
@@ -85,8 +85,8 @@ export default function AdminLayout() {
           type="submit"
           className="w-full cursor-pointer"
           style={{
-            background: "#FFF",
-            color: "#0A0A0A",
+            background: "var(--adm-fg)",
+            color: "var(--adm-bg)",
             fontWeight: 600,
             padding: "10px 0",
             borderRadius: 999,
@@ -94,8 +94,8 @@ export default function AdminLayout() {
             fontSize: 14,
             transition: "all .2s",
           }}
-          onMouseEnter={(e) => { e.currentTarget.style.background = "#D4D4D4"; }}
-          onMouseLeave={(e) => { e.currentTarget.style.background = "#FFF"; }}
+          onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.85"; }}
+          onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; }}
         >
           Unlock
         </button>

@@ -39,6 +39,21 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* admin panel */
+  --adm-bg: #F9FAFB;
+  --adm-fg: #111111;
+  --adm-fg-muted: #6B7280;
+  --adm-fg-subtle: #9CA3AF;
+  --adm-surface: rgba(0,0,0,0.025);
+  --adm-border: rgba(0,0,0,0.08);
+  --adm-topbar: rgba(249,250,251,0.92);
+  --adm-input-bg: rgba(0,0,0,0.04);
+  --adm-input-border: rgba(0,0,0,0.1);
+  --adm-toggle-track-on: rgba(0,0,0,0.15);
+  --adm-toggle-track-off: rgba(0,0,0,0.08);
+  --adm-toggle-dot-on: #111111;
+  --adm-toggle-dot-off: #9CA3AF;
 }
 
 .dark {
@@ -76,6 +91,21 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.439 0 0);
+
+  /* admin panel */
+  --adm-bg: #0A0A0A;
+  --adm-fg: #F5F5F5;
+  --adm-fg-muted: #737373;
+  --adm-fg-subtle: #525252;
+  --adm-surface: rgba(255,255,255,0.03);
+  --adm-border: rgba(255,255,255,0.06);
+  --adm-topbar: rgba(10,10,10,0.9);
+  --adm-input-bg: rgba(255,255,255,0.04);
+  --adm-input-border: rgba(255,255,255,0.08);
+  --adm-toggle-track-on: rgba(255,255,255,0.2);
+  --adm-toggle-track-off: rgba(255,255,255,0.06);
+  --adm-toggle-dot-on: #FFFFFF;
+  --adm-toggle-dot-off: #525252;
 }
 
 @theme inline {

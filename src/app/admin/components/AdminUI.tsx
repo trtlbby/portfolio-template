@@ -3,11 +3,11 @@ import { useRef } from "react";
 
 /* ── shared styles ── */
 export const inputStyle: React.CSSProperties = {
-  background: "rgba(255,255,255,0.04)",
-  border: "1px solid rgba(255,255,255,0.08)",
+  background: "var(--adm-input-bg)",
+  border: "1px solid var(--adm-input-border)",
   borderRadius: 10,
   padding: "10px 14px",
-  color: "#F5F5F5",
+  color: "var(--adm-fg)",
   fontSize: 14,
   width: "100%",
   outline: "none",
@@ -15,8 +15,8 @@ export const inputStyle: React.CSSProperties = {
 };
 
 export const cardStyle: React.CSSProperties = {
-  background: "rgba(255,255,255,0.03)",
-  border: "1px solid rgba(255,255,255,0.06)",
+  background: "var(--adm-surface)",
+  border: "1px solid var(--adm-border)",
   borderRadius: 16,
   padding: 20,
   marginBottom: 12,
@@ -37,7 +37,7 @@ export function Field({
           display: "block",
           fontSize: 11,
           fontWeight: 600,
-          color: "#525252",
+          color: "var(--adm-fg-subtle)",
           textTransform: "uppercase",
           letterSpacing: "0.1em",
           marginBottom: 6,
@@ -69,8 +69,8 @@ export function Toggle({
           width: 36,
           height: 20,
           borderRadius: 999,
-          background: checked ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.06)",
-          border: "1px solid rgba(255,255,255,0.1)",
+          background: checked ? "var(--adm-toggle-track-on)" : "var(--adm-toggle-track-off)",
+          border: "1px solid var(--adm-border)",
           position: "relative",
           transition: "background .2s",
           cursor: "pointer",
@@ -81,7 +81,7 @@ export function Toggle({
             width: 14,
             height: 14,
             borderRadius: "50%",
-            background: checked ? "#FFF" : "#525252",
+            background: checked ? "var(--adm-toggle-dot-on)" : "var(--adm-toggle-dot-off)",
             position: "absolute",
             top: 2,
             left: checked ? 19 : 2,
@@ -89,7 +89,7 @@ export function Toggle({
           }}
         />
       </div>
-      <span style={{ color: checked ? "#F5F5F5" : "#737373" }}>{label}</span>
+      <span style={{ color: checked ? "var(--adm-fg)" : "var(--adm-fg-muted)" }}>{label}</span>
     </label>
   );
 }
@@ -113,11 +113,11 @@ export function ActionBtn({
       disabled={disabled}
       className="cursor-pointer"
       style={{
-        background: danger ? "rgba(239,68,68,0.1)" : "rgba(255,255,255,0.06)",
-        border: `1px solid ${danger ? "rgba(239,68,68,0.2)" : "rgba(255,255,255,0.08)"}`,
+        background: danger ? "rgba(239,68,68,0.1)" : "var(--adm-surface)",
+        border: `1px solid ${danger ? "rgba(239,68,68,0.2)" : "var(--adm-border)"}`,
         borderRadius: 8,
         padding: "4px 12px",
-        color: danger ? "#ef4444" : "#A3A3A3",
+        color: danger ? "#ef4444" : "var(--adm-fg-muted)",
         fontSize: 12,
         fontWeight: 500,
         transition: "all .15s",
@@ -183,7 +183,7 @@ export function ItemListEditor({
             style={{
               background: "none",
               border: "none",
-              color: "#525252",
+              color: "var(--adm-fg-subtle)",
               cursor: "pointer",
               padding: "4px 8px",
               borderRadius: 6,
@@ -204,10 +204,10 @@ export function ItemListEditor({
         onClick={add}
         style={{
           background: "none",
-          border: "1px dashed rgba(255,255,255,0.1)",
+          border: "1px dashed var(--adm-border)",
           borderRadius: 8,
           padding: "7px 12px",
-          color: "#525252",
+          color: "var(--adm-fg-subtle)",
           cursor: "pointer",
           fontSize: 12,
           textAlign: "left",
@@ -215,12 +215,12 @@ export function ItemListEditor({
           marginTop: 2,
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)";
-          e.currentTarget.style.color = "#A3A3A3";
+          e.currentTarget.style.borderColor = "rgba(128,128,128,0.4)";
+          e.currentTarget.style.color = "var(--adm-fg-muted)";
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
-          e.currentTarget.style.color = "#525252";
+          e.currentTarget.style.borderColor = "";
+          e.currentTarget.style.color = "";
         }}
       >
         {addLabel}

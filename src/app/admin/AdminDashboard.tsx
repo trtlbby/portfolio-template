@@ -1,5 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import { Sun, Moon } from "lucide-react";
+import { useTheme } from "@/app/context/ThemeContext";
 import { PersonalInfoEditor } from "./editors/PersonalInfoEditor";
 import { ExperienceEditor } from "./editors/ExperienceEditor";
 import { ProjectEditor } from "./editors/ProjectEditor";
@@ -29,6 +31,7 @@ export function AdminDashboard() {
   const [dirty, setDirty] = useState(false);
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const navigate = useNavigate();
+  const { theme, toggleTheme } = useTheme();
 
   // Fetch portfolio data from dev API
   useEffect(() => {
@@ -89,8 +92,8 @@ export function AdminDashboard() {
   return (
     <div
       style={{
-        background: "#0A0A0A",
-        color: "#F5F5F5",
+        background: "var(--adm-bg)",
+        color: "var(--adm-fg)",
         fontFamily: "'Inter', sans-serif",
         minHeight: "100vh",
       }}
@@ -99,9 +102,9 @@ export function AdminDashboard() {
       <div
         className="sticky top-0 z-30 px-6 py-3 flex items-center justify-between"
         style={{
-          background: "rgba(10,10,10,0.9)",
+          background: "var(--adm-topbar)",
           backdropFilter: "blur(12px)",
-          borderBottom: "1px solid rgba(255,255,255,0.06)",
+          borderBottom: "1px solid var(--adm-border)",
         }}
       >
         <div className="flex items-center gap-3">
@@ -109,11 +112,11 @@ export function AdminDashboard() {
             onClick={() => navigate("/")}
             className="cursor-pointer"
             style={{
-              background: "rgba(255,255,255,0.06)",
-              border: "1px solid rgba(255,255,255,0.1)",
+              background: "var(--adm-surface)",
+              border: "1px solid var(--adm-border)",
               borderRadius: 8,
               padding: "4px 12px",
-              color: "#A3A3A3",
+              color: "var(--adm-fg-muted)",
               fontSize: 13,
             }}
           >
@@ -123,7 +126,7 @@ export function AdminDashboard() {
             style={{
               fontFamily: "'JetBrains Mono', monospace",
               fontSize: 13,
-              color: "#525252",
+              color: "var(--adm-fg-subtle)",
             }}
           >
             Admin Panel
@@ -134,12 +137,26 @@ export function AdminDashboard() {
             <span style={{ fontSize: 12, color: "#f59e0b" }}>Unsaved changes</span>
           )}
           <button
+            onClick={toggleTheme}
+            title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            className="cursor-pointer flex items-center justify-center"
+            style={{
+              background: "var(--adm-surface)",
+              border: "1px solid var(--adm-border)",
+              borderRadius: 8,
+              padding: "5px 8px",
+              color: "var(--adm-fg-muted)",
+            }}
+          >
+            {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
+          </button>
+          <button
             onClick={save}
             disabled={saving || !dirty}
             className="cursor-pointer"
             style={{
-              background: dirty ? "#FFF" : "rgba(255,255,255,0.06)",
-              color: dirty ? "#0A0A0A" : "#525252",
+              background: dirty ? "var(--adm-fg)" : "var(--adm-surface)",
+              color: dirty ? "var(--adm-bg)" : "var(--adm-fg-subtle)",
               fontWeight: 600,
               padding: "6px 20px",
               borderRadius: 999,
@@ -157,7 +174,7 @@ export function AdminDashboard() {
       {/* Tabs */}
       <div
         className="px-6 flex gap-1 overflow-x-auto"
-        style={{ borderBottom: "1px solid rgba(255,255,255,0.06)", paddingTop: 8 }}
+        style={{ borderBottom: "1px solid var(--adm-border)", paddingTop: 8 }}
       >
         {TABS.map((tab) => (
           <button
@@ -168,10 +185,10 @@ export function AdminDashboard() {
               padding: "8px 16px",
               fontSize: 13,
               fontWeight: activeTab === tab.id ? 600 : 400,
-              color: activeTab === tab.id ? "#F5F5F5" : "#737373",
-              background: activeTab === tab.id ? "rgba(255,255,255,0.06)" : "transparent",
+              color: activeTab === tab.id ? "var(--adm-fg)" : "var(--adm-fg-muted)",
+              background: activeTab === tab.id ? "var(--adm-surface)" : "transparent",
               border: "none",
-              borderBottom: activeTab === tab.id ? "2px solid #FFF" : "2px solid transparent",
+              borderBottom: activeTab === tab.id ? "2px solid var(--adm-fg)" : "2px solid transparent",
               borderRadius: "8px 8px 0 0",
               transition: "all .15s",
             }}

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="148" height="176" viewBox="0 0 148 176">
+  <rect width="148" height="176" rx="16" fill="#e5e7eb"/>
+  <circle cx="74" cy="64" r="30" fill="#9ca3af"/>
+  <ellipse cx="74" cy="148" rx="46" ry="38" fill="#9ca3af"/>
+  <text x="74" y="170" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#6b7280">Add your avatar</text>
+</svg>

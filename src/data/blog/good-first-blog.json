@@ -1,0 +1,11 @@
+{
+  "slug": "hello-world",
+  "title": "Hello, World!",
+  "excerpt": "Your first blog post — introduce yourself or share what you're working on.",
+  "tag": "intro",
+  "date": "2026-01-01",
+  "readTime": "2 min",
+  "content": "Welcome to your portfolio blog!\n\nThis is a placeholder post. Replace this content with your own thoughts, tutorials, or project write-ups.\n\n### Getting Started\n\nEdit blog posts by modifying the JSON files in `src/data/blog/`. Each file is one post.\n\n**Fields to update:**\n- `title` — your post title\n- `excerpt` — short description shown in the listing\n- `tag` — a label for the post\n- `date` — publication date (YYYY-MM-DD)\n- `content` — full post content, supports **Markdown**\n- `published` — set to `false` to hide a draft",
+  "published": true,
+  "order": 0
+}

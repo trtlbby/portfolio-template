@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Name — Portfolio</title>
+    <meta name="description" content="Your Name — Software Developer." />
+    <meta name="author" content="Your Name" />
+
+    <!--fav icon-->
+    <link rel="icon" type="image/svg+xml" href="./images/favicon.svg" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Your Name — Portfolio" />
+    <meta property="og:description" content="Your Name — Software Developer." />
+    <meta property="og:url" content="https://your-username.github.io/your-repo-name/" />
+    <meta property="og:image" content="https://your-username.github.io/your-repo-name/images/og-preview.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Your Name — Portfolio" />
+    <meta name="twitter:description" content="Your Name — Software Developer." />
+    <meta name="twitter:image" content="https://your-username.github.io/your-repo-name/images/og-preview.png" />
+
+    <!-- Font loading optimization -->
+    <link rel="dns-prefetch" href="//api.fontshare.com" />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap"
+      media="print"
+      onload="this.media='all'"
+      crossorigin
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" crossorigin />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+    </noscript>
+
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#0A0A0A" />
+
+    <!-- Anti-FOUC: apply saved theme before first paint -->
+    <script>
+      (function () {
+        var t = localStorage.getItem("pf-theme");
+        if (t !== "light") document.documentElement.classList.add("dark");
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

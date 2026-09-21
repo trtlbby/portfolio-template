@@ -1,0 +1,48 @@
+/* Scroll-reveal animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-reveal {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.section-reveal.visible {
+  animation: fadeInUp 0.4s ease-out forwards;
+}
+
+/* Focus-visible ring for keyboard navigation */
+:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+/* Gradient shimmer for tagline */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.tagline-shimmer {
+  background: linear-gradient(
+    90deg,
+    #f5f5f5 0%,
+    #737373 25%,
+    #f5f5f5 50%,
+    #737373 75%,
+    #f5f5f5 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}

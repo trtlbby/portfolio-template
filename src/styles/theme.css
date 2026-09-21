@@ -1,0 +1,339 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  --background: #ffffff;
+  --foreground: oklch(0.145 0 0);
+  --card: #ffffff;
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: #030213;
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.95 0.0058 264.53);
+  --secondary-foreground: #030213;
+  --muted: #ececf0;
+  --muted-foreground: #717182;
+  --accent: #e9ebef;
+  --accent-foreground: #030213;
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 0, 0, 0.1);
+  --input: transparent;
+  --input-background: #f3f3f5;
+  --switch-background: #cbced4;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: #030213;
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* ─── Portfolio-specific design tokens ──────────────────────────── */
+
+:root {
+  /* Text hierarchy */
+  --pf-fg: #0F172A;
+  --pf-fg-2: #475569;
+  --pf-fg-3: #64748B;
+  --pf-fg-4: #94A3B8;
+  --pf-fg-link: #334155;
+  --pf-fg-footer: #64748B;
+
+  /* Navigation */
+  --pf-nav-active: #0F172A;
+  --pf-nav-inactive: #94A3B8;
+  --pf-nav-hover: #475569;
+
+  /* Page */
+  --pf-bg: #F8FAFC;
+
+  /* Surfaces */
+  --pf-surface: rgba(15,23,42,0.03);
+  --pf-surface-hover: rgba(15,23,42,0.04);
+  --pf-border: rgba(15,23,42,0.08);
+  --pf-border-hover: rgba(15,23,42,0.18);
+  --pf-border-strong: rgba(15,23,42,0.12);
+  --pf-divider: rgba(15,23,42,0.06);
+
+  /* Action buttons / resume / social icons */
+  --pf-action-bg: rgba(15,23,42,0.04);
+  --pf-action-border: rgba(15,23,42,0.10);
+  --pf-action-border-hover: rgba(15,23,42,0.20);
+  --pf-action-fg: #334155;
+  --pf-action-fg-hover: #0F172A;
+
+  /* Inputs */
+  --pf-input-bg: rgba(15,23,42,0.03);
+  --pf-input-border: rgba(15,23,42,0.10);
+  --pf-input-border-focus: rgba(15,23,42,0.25);
+  --pf-input-fg: #0F172A;
+
+  /* Tab switcher */
+  --pf-tab-bg: rgba(15,23,42,0.02);
+  --pf-tab-border: rgba(15,23,42,0.07);
+  --pf-tab-active-bg: rgba(15,23,42,0.07);
+  --pf-tab-active-border: rgba(15,23,42,0.12);
+  --pf-tab-active-fg: #0F172A;
+  --pf-tab-inactive-fg: #94A3B8;
+
+  /* Mobile nav */
+  --pf-mobilenav-bg: rgba(248,250,252,0.92);
+  --pf-mobilenav-border: rgba(15,23,42,0.08);
+
+  /* Project image overlay gradient */
+  --pf-img-overlay: linear-gradient(to bottom, transparent 30%, rgba(248,250,252,0.7) 100%);
+
+  /* Blog post divider */
+  --pf-post-divider: rgba(15,23,42,0.08);
+
+  /* Prose blog (used in index.css) */
+  --pf-prose-fg: #475569;
+  --pf-prose-heading: #0F172A;
+  --pf-prose-link: #334155;
+  --pf-prose-link-hover: #0F172A;
+  --pf-prose-strong: #1E293B;
+  --pf-prose-em: #64748B;
+  --pf-prose-code-bg: rgba(15,23,42,0.04);
+  --pf-prose-code-border: rgba(15,23,42,0.08);
+  --pf-prose-code-fg: #334155;
+  --pf-prose-blockquote-border: rgba(15,23,42,0.15);
+  --pf-prose-blockquote-fg: #94A3B8;
+  --pf-prose-pre-bg: rgba(15,23,42,0.02);
+  --pf-prose-pre-border: rgba(15,23,42,0.08);
+  --pf-prose-pre-fg: #334155;
+  --pf-prose-hr: rgba(15,23,42,0.08);
+  --pf-prose-th-fg: #0F172A;
+  --pf-prose-th-border: rgba(15,23,42,0.10);
+  --pf-prose-td-fg: #475569;
+  --pf-prose-td-border: rgba(15,23,42,0.06);
+}
+
+.dark {
+  /* Text hierarchy */
+  --pf-fg: #F8FAFC;
+  --pf-fg-2: #94A3B8;
+  --pf-fg-3: #64748B;
+  --pf-fg-4: #475569;
+  --pf-fg-link: #CBD5E1;
+  --pf-fg-footer: #334155;
+
+  /* Navigation */
+  --pf-nav-active: #F1F5F9;
+  --pf-nav-inactive: #64748B;
+  --pf-nav-hover: #CBD5E1;
+
+  /* Page */
+  --pf-bg: #0A0A0A;
+
+  /* Surfaces */
+  --pf-surface: rgba(226,232,240,0.02);
+  --pf-surface-hover: rgba(226,232,240,0.03);
+  --pf-border: rgba(226,232,240,0.06);
+  --pf-border-hover: rgba(226,232,240,0.14);
+  --pf-border-strong: rgba(226,232,240,0.10);
+  --pf-divider: rgba(226,232,240,0.05);
+
+  /* Action buttons / resume / social icons */
+  --pf-action-bg: rgba(226,232,240,0.05);
+  --pf-action-border: rgba(226,232,240,0.12);
+  --pf-action-border-hover: rgba(226,232,240,0.22);
+  --pf-action-fg: #CBD5E1;
+  --pf-action-fg-hover: #F1F5F9;
+
+  /* Inputs */
+  --pf-input-bg: rgba(226,232,240,0.04);
+  --pf-input-border: rgba(226,232,240,0.08);
+  --pf-input-border-focus: rgba(226,232,240,0.25);
+  --pf-input-fg: #F1F5F9;
+
+  /* Tab switcher */
+  --pf-tab-bg: rgba(226,232,240,0.03);
+  --pf-tab-border: rgba(226,232,240,0.06);
+  --pf-tab-active-bg: rgba(226,232,240,0.08);
+  --pf-tab-active-border: rgba(226,232,240,0.10);
+  --pf-tab-active-fg: #F1F5F9;
+  --pf-tab-inactive-fg: #64748B;
+
+  /* Mobile nav */
+  --pf-mobilenav-bg: rgba(10,10,10,0.92);
+  --pf-mobilenav-border: rgba(226,232,240,0.06);
+
+  /* Project image overlay gradient */
+  --pf-img-overlay: linear-gradient(to bottom, transparent 30%, rgba(10,10,10,0.85) 100%);
+
+  /* Blog post divider */
+  --pf-post-divider: rgba(226,232,240,0.07);
+
+  /* Prose blog (used in index.css) */
+  --pf-prose-fg: #94A3B8;
+  --pf-prose-heading: #F1F5F9;
+  --pf-prose-link: #CBD5E1;
+  --pf-prose-link-hover: #F8FAFC;
+  --pf-prose-strong: #E2E8F0;
+  --pf-prose-em: #94A3B8;
+  --pf-prose-code-bg: rgba(226,232,240,0.06);
+  --pf-prose-code-border: rgba(226,232,240,0.08);
+  --pf-prose-code-fg: #CBD5E1;
+  --pf-prose-blockquote-border: rgba(226,232,240,0.15);
+  --pf-prose-blockquote-fg: #64748B;
+  --pf-prose-pre-bg: rgba(226,232,240,0.04);
+  --pf-prose-pre-border: rgba(226,232,240,0.08);
+  --pf-prose-pre-fg: #CBD5E1;
+  --pf-prose-hr: rgba(226,232,240,0.07);
+  --pf-prose-th-fg: #F1F5F9;
+  --pf-prose-th-border: rgba(226,232,240,0.1);
+  --pf-prose-td-fg: #94A3B8;
+  --pf-prose-td-border: rgba(226,232,240,0.05);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /**
+  * Default typography styles for HTML elements (h1-h4, p, label, button, input).
+  * These are in @layer base, so Tailwind utility classes (like text-sm, text-lg) automatically override them.
+  */
+
+  html {
+    font-size: var(--font-size);
+  }
+
+  h1 {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h2 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h3 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h4 {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  label {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  button {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  input {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+  }
+}

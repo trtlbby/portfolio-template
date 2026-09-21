@@ -1,0 +1,207 @@
+{
+  "personalInfo": {
+    "name": "Your Name",
+    "firstName": "Your",
+    "lastName": "Name",
+    "title": "Your Title",
+    "tagline": "Innovate • Build • Impact",
+    "showTagline": true,
+    "location": "Your City, Country",
+    "email": "your.email@example.com",
+    "bio": "Write a short bio about yourself here. What do you do, what are you passionate about?",
+    "avatarUrl": "/your-repo-name/images/avatar.svg",
+    "avatarBackUrl": "/your-repo-name/images/avatar-back.svg",
+    "quoteImageUrl": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1080",
+    "quote": "Your Favorite Quote",
+    "values": [
+      "Value 1",
+      "Value 2",
+      "Value 3"
+    ]
+  },
+  "navItems": [
+    {
+      "id": "home",
+      "label": "Home",
+      "iconKey": "user"
+    },
+    {
+      "id": "projects",
+      "label": "Projects",
+      "iconKey": "folder-open"
+    },
+    {
+      "id": "blog",
+      "label": "Blog",
+      "iconKey": "book-open"
+    },
+    {
+      "id": "contact",
+      "label": "Contact",
+      "iconKey": "mail"
+    }
+  ],
+  "socialLinks": [
+    {
+      "platform": "github",
+      "url": "https://github.com/your-username",
+      "isVisible": true,
+      "order": 0
+    },
+    {
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/in/your-profile/",
+      "isVisible": true,
+      "order": 1
+    },
+    {
+      "platform": "email",
+      "url": "mailto:your.email@example.com",
+      "isVisible": true,
+      "order": 2
+    }
+  ],
+  "skillCategories": [
+    {
+      "key": "technical",
+      "label": "Technical",
+      "description": "Languages, frameworks, and tools I work with daily.",
+      "iconKey": "code2",
+      "skills": [
+        "AI",
+        "JavaScript",
+        "Node.js",
+        "Git",
+        "Python"
+      ],
+      "isVisible": true,
+      "order": 0
+    },
+    {
+      "key": "design",
+      "label": "Design",
+      "description": "Design thinking and user-centered approaches.",
+      "iconKey": "palette",
+      "skills": [
+        "System Design",
+        "UI/UX Analysis",
+        "Figma"
+      ],
+      "isVisible": true,
+      "order": 1
+    },
+    {
+      "key": "other",
+      "label": "Other",
+      "description": "Complementary skills that round out my practice.",
+      "iconKey": "brain",
+      "skills": [
+        "Technical Writing",
+        "Project Management",
+        "Research Methods"
+      ],
+      "isVisible": true,
+      "order": 2
+    }
+  ],
+  "experiences": [
+    {
+      "role": "Your Role",
+      "company": "Your Company",
+      "period": "Month Year – Present",
+      "location": "Your City",
+      "current": true,
+      "bullets": [
+        "Describe a key responsibility or achievement here.",
+        "Another accomplishment or responsibility."
+      ],
+      "isVisible": true,
+      "order": 0
+    }
+  ],
+  "projects": [
+    {
+      "title": "Project One",
+      "subtitle": "Short project subtitle",
+      "role": "Your Role",
+      "period": "Month Year",
+      "description": "Describe what this project does and why you built it. What problem does it solve?",
+      "tags": [
+        "React",
+        "TypeScript",
+        "Node.js"
+      ],
+      "bullets": [
+        "Key technical detail or achievement.",
+        "Another notable aspect of this project."
+      ],
+      "imageUrl": "/your-repo-name/images/project-placeholder.svg",
+      "link": "#",
+      "destinationType": "detail",
+      "slug": "project-one",
+      "isFeatured": true,
+      "isVisible": true,
+      "order": 0
+    },
+    {
+      "title": "Project Two",
+      "subtitle": "Short project subtitle",
+      "role": "Your Role",
+      "period": "Month Year",
+      "description": "Describe what this project does and the problem it solves.",
+      "tags": [
+        "Python",
+        "API",
+        "PostgreSQL"
+      ],
+      "bullets": [
+        "Key technical detail or achievement.",
+        "Another notable aspect of this project."
+      ],
+      "imageUrl": "/your-repo-name/images/project-placeholder.svg",
+      "link": "#",
+      "destinationType": "detail",
+      "slug": "project-two",
+      "isFeatured": true,
+      "isVisible": true,
+      "order": 1
+    }
+  ],
+  "education": {
+    "university": "Your University",
+    "location": "Your City, Country",
+    "degree": "Your Degree",
+    "expectedGraduation": "Month Year",
+    "thesis": {
+      "title": "Your Thesis or Capstone Title",
+      "bullets": [
+        "Briefly describe your thesis or capstone research here."
+      ],
+      "isVisible": false
+    },
+    "coursework": [
+      "Course 1",
+      "Course 2",
+      "Course 3"
+    ],
+    "achievements": [
+      {
+        "title": "Your Achievement",
+        "period": "Year"
+      }
+    ],
+    "activities": [
+      {
+        "title": "Activity Name",
+        "type": "Activity Type",
+        "description": "Describe your involvement and what you gained from it.",
+        "period": "Year"
+      }
+    ]
+  },
+  "contactInfo": {
+    "email": "your.email@example.com",
+    "phone": "#",
+    "location": "Your City, Country"
+  }
+}

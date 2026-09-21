@@ -1,4 +1,5 @@
 import type React from "react";
+import { useRef } from "react";
 
 /* ── shared styles ── */
 export const inputStyle: React.CSSProperties = {
@@ -98,15 +99,18 @@ export function ActionBtn({
   children,
   onClick,
   danger,
+  disabled,
 }: {
   children: React.ReactNode;
   onClick: () => void;
   danger?: boolean;
+  disabled?: boolean;
 }) {
   return (
     <button
       type="button"
       onClick={onClick}
+      disabled={disabled}
       className="cursor-pointer"
       style={{
         background: danger ? "rgba(239,68,68,0.1)" : "rgba(255,255,255,0.06)",
@@ -117,9 +121,110 @@ export function ActionBtn({
         fontSize: 12,
         fontWeight: 500,
         transition: "all .15s",
+        opacity: disabled ? 0.3 : 1,
+        pointerEvents: disabled ? "none" : "auto",
       }}
     >
       {children}
     </button>
+  );
+}
+
+/* ── Individual-row list editor — replaces "one per line" textareas ── */
+export function ItemListEditor({
+  items,
+  onChange,
+  placeholder = "Add item…",
+  addLabel = "+ Add",
+}: {
+  items: string[];
+  onChange: (items: string[]) => void;
+  placeholder?: string;
+  addLabel?: string;
+}) {
+  const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
+
+  const setItem = (idx: number, value: string) =>
+    onChange(items.map((v, i) => (i === idx ? value : v)));
+
+  const remove = (idx: number) =>
+    onChange(items.filter((_, i) => i !== idx));
+
+  const add = () => {
+    onChange([...items, ""]);
+    requestAnimationFrame(() => inputRefs.current[items.length]?.focus());
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent, idx: number) => {
+    if (e.key !== "Enter") return;
+    e.preventDefault();
+    const next = [...items];
+    next.splice(idx + 1, 0, "");
+    onChange(next);
+    requestAnimationFrame(() => inputRefs.current[idx + 1]?.focus());
+  };
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+      {items.map((item, i) => (
+        <div key={i} className="flex items-center gap-2">
+          <input
+            ref={(el) => { inputRefs.current[i] = el; }}
+            style={{ ...inputStyle, flex: 1, padding: "8px 12px" }}
+            value={item}
+            placeholder={placeholder}
+            onChange={(e) => setItem(i, e.target.value)}
+            onKeyDown={(e) => handleKeyDown(e, i)}
+          />
+          <button
+            type="button"
+            onClick={() => remove(i)}
+            title="Remove"
+            style={{
+              background: "none",
+              border: "none",
+              color: "#525252",
+              cursor: "pointer",
+              padding: "4px 8px",
+              borderRadius: 6,
+              fontSize: 16,
+              lineHeight: 1,
+              flexShrink: 0,
+              transition: "color .15s",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "#ef4444")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "#525252")}
+          >
+            ×
+          </button>
+        </div>
+      ))}
+      <button
+        type="button"
+        onClick={add}
+        style={{
+          background: "none",
+          border: "1px dashed rgba(255,255,255,0.1)",
+          borderRadius: 8,
+          padding: "7px 12px",
+          color: "#525252",
+          cursor: "pointer",
+          fontSize: 12,
+          textAlign: "left",
+          transition: "border-color .15s, color .15s",
+          marginTop: 2,
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)";
+          e.currentTarget.style.color = "#A3A3A3";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+          e.currentTarget.style.color = "#525252";
+        }}
+      >
+        {addLabel}
+      </button>
+    </div>
   );
 }

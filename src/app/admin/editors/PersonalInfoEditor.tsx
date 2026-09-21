@@ -37,10 +37,6 @@ export function PersonalInfoEditor({ personalInfo, socialLinks, onChange }: Prop
         </Field>
       </div>
 
-      <Field label="Title">
-        <input style={inputStyle} value={personalInfo.title} onChange={(e) => set({ title: e.target.value })} />
-      </Field>
-
       <Field label="Tagline">
         <input style={inputStyle} value={personalInfo.tagline} onChange={(e) => set({ tagline: e.target.value })} />
       </Field>
@@ -49,14 +45,9 @@ export function PersonalInfoEditor({ personalInfo, socialLinks, onChange }: Prop
         <Toggle checked={personalInfo.showTagline} onChange={(v) => set({ showTagline: v })} label="Show tagline" />
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <Field label="Location">
-          <input style={inputStyle} value={personalInfo.location} onChange={(e) => set({ location: e.target.value })} />
-        </Field>
-        <Field label="Email">
-          <input style={inputStyle} type="email" value={personalInfo.email} onChange={(e) => set({ email: e.target.value })} />
-        </Field>
-      </div>
+      <Field label="Location">
+        <input style={inputStyle} value={personalInfo.location} onChange={(e) => set({ location: e.target.value })} />
+      </Field>
 
       <Field label="Bio">
         <textarea
@@ -67,25 +58,13 @@ export function PersonalInfoEditor({ personalInfo, socialLinks, onChange }: Prop
       </Field>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <Field label="Avatar URL">
+        <Field label="Avatar (front)">
           <input style={inputStyle} value={personalInfo.avatarUrl} onChange={(e) => set({ avatarUrl: e.target.value })} />
         </Field>
-        <Field label="Quote Image URL">
-          <input style={inputStyle} value={personalInfo.quoteImageUrl} onChange={(e) => set({ quoteImageUrl: e.target.value })} />
+        <Field label="Avatar (back / dark mode)">
+          <input style={inputStyle} value={personalInfo.avatarBackUrl ?? ""} onChange={(e) => set({ avatarBackUrl: e.target.value })} />
         </Field>
       </div>
-
-      <Field label="Quote">
-        <input style={inputStyle} value={personalInfo.quote} onChange={(e) => set({ quote: e.target.value })} />
-      </Field>
-
-      <Field label="Values (one per line)">
-        <textarea
-          style={{ ...inputStyle, minHeight: 80, resize: "vertical" }}
-          value={personalInfo.values.join("\n")}
-          onChange={(e) => set({ values: e.target.value.split("\n").filter(Boolean) })}
-        />
-      </Field>
 
       {/* Social Links */}
       <h3 style={{ fontSize: 15, fontWeight: 600, marginTop: 24, marginBottom: 12 }}>Social Links</h3>

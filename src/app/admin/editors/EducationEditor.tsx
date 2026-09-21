@@ -1,4 +1,4 @@
-import type { Education, Achievement, Activity } from "@/types/portfolio";
+import type { Education, Achievement } from "@/types/portfolio";
 import { Field, inputStyle, cardStyle, ActionBtn, Toggle } from "../components/AdminUI";
 
 interface Props {
@@ -20,15 +20,6 @@ export function EducationEditor({ education, onChange }: Props) {
 
   const removeAchievement = (idx: number) =>
     set({ achievements: education.achievements.filter((_, i) => i !== idx) });
-
-  const setActivity = (idx: number, partial: Partial<Activity>) =>
-    set({ activities: education.activities.map((a, i) => (i === idx ? { ...a, ...partial } : a)) });
-
-  const addActivity = () =>
-    set({ activities: [...education.activities, { title: "", type: "", description: "", period: "" }] });
-
-  const removeActivity = (idx: number) =>
-    set({ activities: education.activities.filter((_, i) => i !== idx) });
 
   return (
     <div>
@@ -61,22 +52,7 @@ export function EducationEditor({ education, onChange }: Props) {
         <Field label="Title">
           <input style={inputStyle} value={education.thesis.title} onChange={(e) => setThesis({ title: e.target.value })} />
         </Field>
-        <Field label="Bullets (one per line)">
-          <textarea
-            style={{ ...inputStyle, minHeight: 80, resize: "vertical" }}
-            value={education.thesis.bullets.join("\n")}
-            onChange={(e) => setThesis({ bullets: e.target.value.split("\n").filter(Boolean) })}
-          />
-        </Field>
       </div>
-
-      <Field label="Coursework (one per line)">
-        <textarea
-          style={{ ...inputStyle, minHeight: 80, resize: "vertical" }}
-          value={education.coursework.join("\n")}
-          onChange={(e) => set({ coursework: e.target.value.split("\n").filter(Boolean) })}
-        />
-      </Field>
 
       <div className="flex items-center justify-between mt-6 mb-3">
         <h3 style={{ fontSize: 15, fontWeight: 600 }}>Achievements</h3>
@@ -101,40 +77,6 @@ export function EducationEditor({ education, onChange }: Props) {
         </div>
       ))}
 
-      <div className="flex items-center justify-between mt-6 mb-3">
-        <h3 style={{ fontSize: 15, fontWeight: 600 }}>Activities</h3>
-        <ActionBtn onClick={addActivity}>+ Add</ActionBtn>
-      </div>
-      {education.activities.map((act, i) => (
-        <div key={i} style={cardStyle}>
-          <div className="flex items-center justify-between mb-2">
-            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: "#525252" }}>
-              #{i + 1}
-            </span>
-            <ActionBtn danger onClick={() => removeActivity(i)}>Delete</ActionBtn>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <Field label="Title">
-              <input style={inputStyle} value={act.title} onChange={(e) => setActivity(i, { title: e.target.value })} />
-            </Field>
-            <Field label="Type (e.g. Seminar, Competition)">
-              <input style={inputStyle} value={act.type} onChange={(e) => setActivity(i, { type: e.target.value })} />
-            </Field>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <Field label="Period">
-              <input style={inputStyle} value={act.period} onChange={(e) => setActivity(i, { period: e.target.value })} />
-            </Field>
-          </div>
-          <Field label="Description">
-            <textarea
-              style={{ ...inputStyle, minHeight: 60, resize: "vertical" }}
-              value={act.description}
-              onChange={(e) => setActivity(i, { description: e.target.value })}
-            />
-          </Field>
-        </div>
-      ))}
     </div>
   );
 }

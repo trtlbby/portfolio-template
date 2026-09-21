@@ -28,7 +28,6 @@ export function AdminDashboard() {
   const [saving, setSaving] = useState(false);
   const [dirty, setDirty] = useState(false);
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
-  const [blogDirty, setBlogDirty] = useState(false);
   const navigate = useNavigate();
 
   // Fetch portfolio data from dev API
@@ -46,35 +45,19 @@ export function AdminDashboard() {
       .catch(() => setBlogPosts([]));
   }, []);
 
-  const save = useCallback(async (updated: PortfolioData) => {
+  const save = useCallback(async () => {
+    if (!data) return;
     setSaving(true);
     try {
-      await fetch("/api/portfolio", {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(updated),
-      });
-      setData(updated);
+      await Promise.all([
+        fetch("/api/portfolio", { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) }),
+        fetch("/api/blog", { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify(blogPosts) }),
+      ]);
       setDirty(false);
     } finally {
       setSaving(false);
     }
-  }, []);
-
-  const saveBlog = useCallback(async (posts: BlogPost[]) => {
-    setSaving(true);
-    try {
-      await fetch("/api/blog", {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(posts),
-      });
-      setBlogPosts(posts);
-      setBlogDirty(false);
-    } finally {
-      setSaving(false);
-    }
-  }, []);
+  }, [data, blogPosts]);
 
   const update = useCallback(
     (partial: Partial<PortfolioData>) => {
@@ -147,12 +130,12 @@ export function AdminDashboard() {
           </span>
         </div>
         <div className="flex items-center gap-3">
-          {(activeTab === "blog" ? blogDirty : dirty) && (
+          {dirty && (
             <span style={{ fontSize: 12, color: "#f59e0b" }}>Unsaved changes</span>
           )}
           <button
-            onClick={() => activeTab === "blog" ? saveBlog(blogPosts) : save(data)}
-            disabled={saving || (activeTab === "blog" ? !blogDirty : !dirty)}
+            onClick={save}
+            disabled={saving || !dirty}
             className="cursor-pointer"
             style={{
               background: dirty ? "#FFF" : "rgba(255,255,255,0.06)",
@@ -240,7 +223,7 @@ export function AdminDashboard() {
         {activeTab === "blog" && (
           <BlogEditor
             posts={blogPosts}
-            onChange={(posts) => { setBlogPosts(posts); setBlogDirty(true); }}
+            onChange={(posts) => { setBlogPosts(posts); setDirty(true); }}
           />
         )}
       </div>

@@ -177,7 +177,7 @@
       "bullets": [
         "Briefly describe your thesis or capstone research here."
       ],
-      "isVisible": false
+      "isVisible": true
     },
     "coursework": [
       "Course 1",

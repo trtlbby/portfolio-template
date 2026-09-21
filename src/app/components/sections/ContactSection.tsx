@@ -246,7 +246,12 @@ export function ContactSection({
       <div className="mt-16 pt-6" style={{ borderTop: "1px solid var(--pf-border)" }}>
         <div className="flex flex-col sm:flex-row items-center justify-between gap-2">
           <p style={{ color: "var(--pf-fg-footer)", fontSize: 12 }}>© 2026 {personalInfo.name}. All rights reserved.</p>
-          <p style={{ color: "var(--pf-fg-footer)", fontSize: 12 }}>I love ˗ˏˋ☕︎ˎˊ˗ and code</p>
+          <p style={{ color: "var(--pf-fg-footer)", fontSize: 12 }}>
+            made by{" "}
+            <a href="https://trtlbby.me" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "underline", textUnderlineOffset: 3 }}>
+              trtlbby
+            </a>
+          </p>
         </div>
       </div>
     </section>

@@ -186,7 +186,11 @@
     ],
     "achievements": [
       {
-        "title": "Your Achievement",
+        "title": "Your Achievement 1",
+        "period": "Year"
+      },
+      {
+        "title": "Your Achievement 2",
         "period": "Year"
       }
     ],

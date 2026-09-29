@@ -81,6 +81,8 @@ When you deploy breaking asset changes and want to force cache refresh, bump `CA
 
 Pushes to `master/main` auto-deploy to GitHub Pages via GitHub Actions.
 
+Before the workflow can deploy successfully, GitHub Pages must be enabled in the repository settings with the source set to GitHub Actions.
+
 If you fork or rename this template, update the GitHub Pages base path in [vite.config.ts](vite.config.ts) and the redirect target in [public/404.html](public/404.html) to match the repository name exactly.
 
 ## Project Structure

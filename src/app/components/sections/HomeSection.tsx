@@ -3,6 +3,7 @@ import { MapPin, Eye, Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "../icons";
 import { PillBadge } from "../PillBadge";
 import { useTheme } from "@/app/context/ThemeContext";
+import { resolveAssetUrl } from "@/lib/assetUrl";
 import type { PersonalInfo, SkillCategory, Experience, Education, SocialLink } from "@/types/portfolio";
 
 interface HomeSectionProps {
@@ -65,8 +66,8 @@ export function HomeSection({ personalInfo, skillCategories, experiences, educat
     setFlipped(theme === "dark");
   }, [theme]);
 
-  const avatarFront = personalInfo.avatarUrl;
-  const avatarBack = personalInfo.avatarBackUrl ?? personalInfo.avatarUrl;
+  const avatarFront = resolveAssetUrl(personalInfo.avatarUrl);
+  const avatarBack = resolveAssetUrl(personalInfo.avatarBackUrl ?? personalInfo.avatarUrl);
 
   const visibleSocials = socialLinks
     .filter((s) => s.isVisible)

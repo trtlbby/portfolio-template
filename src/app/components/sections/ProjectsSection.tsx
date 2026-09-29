@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/types/portfolio";
 import { PillBadge } from "../PillBadge";
 import { getProjectImageDimensions, getProjectImageWebpSrcset } from "@/data/projectImages";
+import { resolveAssetUrl } from "@/lib/assetUrl";
 
 interface ProjectsSectionProps {
   projects: Project[];
@@ -35,8 +36,9 @@ export function ProjectsSection({ projects, limit }: ProjectsSectionProps) {
     project.slug ? `/projects/${project.slug}` : null;
 
   const renderCardBody = (project: Project) => {
-    const imageDimensions = getProjectImageDimensions(project.imageUrl);
-    const webpSrcset = getProjectImageWebpSrcset(project.imageUrl);
+    const imageUrl = resolveAssetUrl(project.imageUrl);
+    const imageDimensions = getProjectImageDimensions(imageUrl);
+    const webpSrcset = getProjectImageWebpSrcset(imageUrl);
 
     return (
       <>
@@ -51,7 +53,7 @@ export function ProjectsSection({ projects, limit }: ProjectsSectionProps) {
               />
             )}
             <img
-              src={project.imageUrl}
+              src={imageUrl}
               alt={`Screenshot of ${project.title}`}
               className="w-full h-full object-cover"
               loading="lazy"

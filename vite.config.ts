@@ -5,7 +5,7 @@ import { resolve } from "path";
 import { portfolioApi } from "./vite-plugin-portfolio-api";
 
 export default defineConfig({
-  base: "/your-repo-name/",
+  base: "/portfolio-template/",
   plugins: [react(), tailwindcss(), portfolioApi()],
   resolve: {
     alias: {

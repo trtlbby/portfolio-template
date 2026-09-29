@@ -7,7 +7,7 @@
       const path = window.location.pathname;
       const search = window.location.search || '';
       const hash = window.location.hash || '';
-      const repo = '/your-repo-name';
+      const repo = '/portfolio-template';
       if (path !== repo + '/' && path !== repo) {
         sessionStorage.setItem('spa-redirect', path + search + hash);
       }

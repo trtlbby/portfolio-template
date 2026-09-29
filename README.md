@@ -2,7 +2,9 @@
 
 A dark minimalist portfolio built with React, TypeScript, Vite, and Tailwind CSS v4.
 
-**[Live Demo →](https://your-username.github.io/your-repo-name/)**
+**This is the live demo of the template:** [Live Demo →](https://trtlbby.github.io/portfolio-template/)
+
+Replace `your-repo-name` in [vite.config.ts](vite.config.ts) and [public/404.html](public/404.html) with your actual repository name before publishing this template to GitHub Pages. For this repo, the value is `portfolio-template`.
 
 ## Features
 
@@ -65,7 +67,9 @@ When you deploy breaking asset changes and want to force cache refresh, bump `CA
 
 ## Deployment
 
-Pushes to `master` auto-deploy to GitHub Pages via GitHub Actions.
+Pushes to `master/main` auto-deploy to GitHub Pages via GitHub Actions.
+
+If you fork or rename this template, update the GitHub Pages base path in [vite.config.ts](vite.config.ts) and the redirect target in [public/404.html](public/404.html) to match the repository name exactly.
 
 ## Project Structure
 
@@ -91,5 +95,3 @@ src/
 
 ## Recent Update
 
-- Added a local project demo video at `public/videos/localCMSDemo.mp4`
-- Updated `Local Portfolio CMS` project data to use `videoFileUrl` for in-page demo playback

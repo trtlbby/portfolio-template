@@ -43,6 +43,18 @@ npm run build
 npm run preview
 ```
 
+## Contact Form Setup
+
+The contact form uses EmailJS, so each person using this template must create their own EmailJS account and configure their own service, template, and public key.
+
+1. Create a free EmailJS account at https://www.emailjs.com/.
+2. Add your email provider in EmailJS and create a service.
+3. Create an EmailJS template that includes the form fields used by this app: `name`, `email`, `title`, and `message`.
+4. Copy your EmailJS service ID, template ID, and public key into your local `.env` file as `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`, and `VITE_EMAILJS_PUBLIC_KEY`.
+5. Restart the dev server after updating `.env` so Vite picks up the new values.
+
+Without those values, the contact form will render but sending messages will fail.
+
 ## Performance Workflow
 
 ### Regenerate Optimized Project Images
